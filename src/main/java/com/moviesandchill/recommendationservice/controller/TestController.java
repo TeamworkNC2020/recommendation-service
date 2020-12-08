@@ -1,4 +1,4 @@
-package com.weldnor.recommendationservice.controller;
+package com.moviesandchill.recommendationservice.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

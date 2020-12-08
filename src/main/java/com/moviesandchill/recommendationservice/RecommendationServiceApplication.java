@@ -1,4 +1,4 @@
-package com.weldnor.recommendationservice;
+package com.moviesandchill.recommendationservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
