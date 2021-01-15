@@ -1,0 +1,24 @@
+greeting привет !
+greeting добрый день !
+greeting здравствуйте !
+greeting привет ! как дела ?
+conversation-complete пока !
+conversation-complete до свидания !
+conversation-complete до встречи !
+conversation-complete еще увидимся !
+conversation-complete до связи !
+conversation-complete спасибо за все , пока .
+comedy хочу посмотреть комедию
+comedy покажи комедии
+comedy хочу посмеяться ! покажи , пожалуйста , комедии
+comedy посоветуй комедию
+comedy какие посоветуешь комедии ?
+action хочу посмотреть боевик
+action покажи боевики
+action порекомендуй боевик
+action посоветуй боевик
+action какие посоветуешь боевики ?
+romance покажи фильмы про романтику
+romance порекомендуй романтические фильмы
+romance покажи фильмы про любовь
+romance покажи фильмы жанра романика
