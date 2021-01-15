@@ -1,6 +1,7 @@
 package com.moviesandchill.recommendationservice.util;
 
 import opennlp.tools.doccat.*;
+import opennlp.tools.stemmer.snowball.SnowballStemmer;
 import opennlp.tools.tokenize.SimpleTokenizer;
 import opennlp.tools.util.ObjectStream;
 import opennlp.tools.util.TrainingParameters;
@@ -8,6 +9,8 @@ import opennlp.tools.util.model.ModelUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public final class NlpUtils {
@@ -42,7 +45,25 @@ public final class NlpUtils {
 
         String[] tokens = myCategorizer.tokenize(sentence);
         logger.info("split sentence to tokens : " + String.join(" | ", tokens));
-        return tokens;
+
+        return stemmingTokens(tokens);
     }
+
+    public static String[] stemmingTokens(String[] tokens) {
+        SnowballStemmer stemmer = new SnowballStemmer(SnowballStemmer.ALGORITHM.RUSSIAN);
+
+        List<String> stemsList = new ArrayList<>();
+
+        for (String token : tokens) {
+            String stem = String.valueOf(stemmer.stem(token));
+            stemsList.add(stem);
+        }
+
+        String[] stems = stemsList.toArray(new String[0]);
+        logger.info("after stemming : " + String.join(" | ", stems));
+
+        return stems;
+    }
+
 
 }
