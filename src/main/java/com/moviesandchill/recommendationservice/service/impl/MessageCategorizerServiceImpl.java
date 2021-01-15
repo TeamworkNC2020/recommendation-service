@@ -1,26 +1,59 @@
 package com.moviesandchill.recommendationservice.service.impl;
 
+import com.moviesandchill.recommendationservice.repository.MessageCategorizerTrainingSampleRepository;
 import com.moviesandchill.recommendationservice.service.MessageCategorizerService;
 import com.moviesandchill.recommendationservice.util.NlpUtils;
 import opennlp.tools.doccat.DoccatModel;
+import opennlp.tools.doccat.DocumentSample;
+import opennlp.tools.doccat.DocumentSampleStream;
+import opennlp.tools.util.*;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.io.File;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class MessageCategorizerServiceImpl implements MessageCategorizerService {
 
+    private final MessageCategorizerTrainingSampleRepository trainingSampleRepository;
+
     private DoccatModel model;
+
+    public MessageCategorizerServiceImpl(MessageCategorizerTrainingSampleRepository trainingSampleRepository) {
+        this.trainingSampleRepository = trainingSampleRepository;
+    }
 
     @PostConstruct
     private void init() {
-        model = NlpUtils.trainCategorizerModel();
+        ObjectStream<DocumentSample> trainingSamples = loadDocumentSampleStreamFromDatabase();
+        model = NlpUtils.trainCategorizerModel(trainingSamples);
     }
 
     @Override
     public Map<String, Double> getCategories(String text, long userId) {
         String[] tokens = NlpUtils.tokenizeSentence(text);
         return NlpUtils.getCategories(model, tokens);
+    }
+
+    private ObjectStream<DocumentSample> loadDocumentSampleStreamFromDatabase() {
+        List<DocumentSample> documentSamples = trainingSampleRepository.findAll().stream()
+                .map(m -> new DocumentSample(m.getCategory(), NlpUtils.tokenizeSentence(m.getText())))
+                .collect(Collectors.toList());
+
+        return new CollectionObjectStream<>(documentSamples);
+    }
+
+    private ObjectStream<DocumentSample> loadDocumentSampleStreamFromFile(String path) {
+        try {
+            InputStreamFactory inputStreamFactory = new MarkableFileInputStreamFactory(new File(path));
+            ObjectStream<String> lineStream = new PlainTextByLineStream(inputStreamFactory, StandardCharsets.UTF_8);
+            return new DocumentSampleStream(lineStream);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

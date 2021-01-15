@@ -2,30 +2,23 @@ package com.moviesandchill.recommendationservice.util;
 
 import opennlp.tools.doccat.*;
 import opennlp.tools.tokenize.SimpleTokenizer;
-import opennlp.tools.util.*;
+import opennlp.tools.util.ObjectStream;
+import opennlp.tools.util.TrainingParameters;
 import opennlp.tools.util.model.ModelUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 public final class NlpUtils {
 
     private static final Logger logger = LoggerFactory.getLogger(NlpUtils.class);
-    private static final String TRAINING_SET_PATH = "train.txt";
 
     private NlpUtils() {
     }
 
-    public static DoccatModel trainCategorizerModel() {
+    public static DoccatModel trainCategorizerModel(ObjectStream<DocumentSample> sampleStream) {
         try {
-            logger.info("start load training set with path " + TRAINING_SET_PATH);
-            InputStreamFactory inputStreamFactory = new MarkableFileInputStreamFactory(new File(TRAINING_SET_PATH));
-            ObjectStream<String> lineStream = new PlainTextByLineStream(inputStreamFactory, StandardCharsets.UTF_8);
-            ObjectStream<DocumentSample> sampleStream = new DocumentSampleStream(lineStream);
-
             DoccatFactory factory = new DoccatFactory(new FeatureGenerator[]{new BagOfWordsFeatureGenerator()});
 
             TrainingParameters params = ModelUtil.createDefaultTrainingParameters();
