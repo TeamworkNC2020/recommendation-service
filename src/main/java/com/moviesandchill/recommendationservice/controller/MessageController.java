@@ -13,7 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(
-        path = "api/messages/",
+        path = "api/v1/messages/",
         produces = "application/json"
 )
 public class MessageController {
