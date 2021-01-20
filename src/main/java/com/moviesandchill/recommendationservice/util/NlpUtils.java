@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public final class NlpUtils {
 
@@ -35,9 +34,10 @@ public final class NlpUtils {
         }
     }
 
-    public static Map<String, Double> getCategories(DoccatModel model, String[] finalTokens) {
+    public static String getBestCategory(DoccatModel model, String[] finalTokens) {
         DocumentCategorizerME myCategorizer = new DocumentCategorizerME(model);
-        return myCategorizer.scoreMap(finalTokens);
+        double[] scores = myCategorizer.categorize(finalTokens);
+        return myCategorizer.getBestCategory(scores);
     }
 
     public static String[] tokenizeSentence(String sentence) {
