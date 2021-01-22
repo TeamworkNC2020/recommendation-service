@@ -1,6 +1,7 @@
 package com.moviesandchill.recommendationservice.service.impl;
 
 import com.moviesandchill.recommendationservice.entity.ChatBotMessage;
+import com.moviesandchill.recommendationservice.entity.ChatBotMessageWithFilms;
 import com.moviesandchill.recommendationservice.service.ChatBotService;
 import com.moviesandchill.recommendationservice.service.MessageCategorizerService;
 import com.moviesandchill.recommendationservice.service.RecommendationService;
@@ -21,19 +22,20 @@ public class ChatBotServiceImpl implements ChatBotService {
     public ChatBotMessage answer(String text, long userId) {
         String category = messageCategorizerService.getCategory(text, userId);
 
+        //FIXME
         switch (category) {
             case "greeting":
-                return new ChatBotMessage("hi", "sample", null);
+                return new ChatBotMessage("hi");
             case "conversation-complete":
-                return new ChatBotMessage("goodbye!", "sample", null);
+                return new ChatBotMessage("goodbye!");
             case "comedy":
-                return new ChatBotMessage("recommended comedies:", "films-list", recommendationService.recommend(0, "comedy"));
+                return new ChatBotMessageWithFilms("recommended comedies", recommendationService.recommend(0, "comedy"));
             case "action":
-                return new ChatBotMessage("recommended actions:", "films-list", recommendationService.recommend(0, "action"));
+                return new ChatBotMessageWithFilms("recommended actions", recommendationService.recommend(0, "action"));
             case "romance":
-                return new ChatBotMessage("recommended romances:", "films-list", recommendationService.recommend(0, "romance"));
+                return new ChatBotMessageWithFilms("recommended romances:", recommendationService.recommend(0, "romance"));
         }
 
-        return new ChatBotMessage("oops! impossible", "sample", null);
+        return new ChatBotMessage("oops!");
     }
 }

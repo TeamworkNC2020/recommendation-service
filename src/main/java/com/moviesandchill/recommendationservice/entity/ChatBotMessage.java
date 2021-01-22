@@ -9,6 +9,4 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ChatBotMessage {
     String text;
-    String type;
-    Object content;
 }
