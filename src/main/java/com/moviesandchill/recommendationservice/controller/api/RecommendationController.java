@@ -25,7 +25,7 @@ public class RecommendationController {
         this.chatBotService = chatBotService;
     }
 
-    @PostMapping("chat-bot")
+    @PostMapping("chat_bot")
     private ChatBotMessage chatBot(@RequestBody MessageDto messageDto) {
         String text = messageDto.getText();
         long userId = messageDto.getUserId();
