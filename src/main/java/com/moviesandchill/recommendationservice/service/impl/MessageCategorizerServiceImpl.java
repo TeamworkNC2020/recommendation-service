@@ -13,7 +13,6 @@ import javax.annotation.PostConstruct;
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -34,9 +33,9 @@ public class MessageCategorizerServiceImpl implements MessageCategorizerService 
     }
 
     @Override
-    public Map<String, Double> getCategories(String text, long userId) {
+    public String getCategory(String text, long userId) {
         String[] tokens = NlpUtils.tokenizeSentence(text);
-        return NlpUtils.getCategories(model, tokens);
+        return NlpUtils.getBestCategory(model, tokens);
     }
 
     private ObjectStream<DocumentSample> loadDocumentSampleStreamFromDatabase() {
