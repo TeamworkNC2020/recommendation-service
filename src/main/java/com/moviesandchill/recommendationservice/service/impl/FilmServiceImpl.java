@@ -14,9 +14,10 @@ public class FilmServiceImpl implements FilmService {
     private static final List<Film> films = new ArrayList<>();
 
     static {
-        films.add(new Film(1, "один дома", "", List.of("comedy")));
-        films.add(new Film(2, "Мстители: Война бесконечности", "", List.of("action")));
-        films.add(new Film(3, "В джазе только девушки", "", List.of("romance")));
+        films.add(new Film(1, "один дома", "olo olo lol", List.of("comedy")));
+        films.add(new Film(2, "Мстители: Война бесконечности", "bla bla bla", List.of("action")));
+        films.add(new Film(3, "В джазе только девушки", "ora ora ora", List.of("romance")));
+        films.add(new Film(4, "Крепкий орех", "bla bla bla", List.of("action")));
     }
 
     @Override

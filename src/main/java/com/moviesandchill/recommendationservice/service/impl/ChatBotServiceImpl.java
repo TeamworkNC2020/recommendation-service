@@ -25,15 +25,15 @@ public class ChatBotServiceImpl implements ChatBotService {
         //FIXME
         switch (category) {
             case "greeting":
-                return new ChatBotMessage("hi");
+                return new ChatBotMessage("привет!");
             case "conversation-complete":
-                return new ChatBotMessage("goodbye!");
+                return new ChatBotMessage("до встречи!");
             case "comedy":
-                return new ChatBotMessageWithFilms("recommended comedies", recommendationService.recommend(0, "comedy"));
+                return new ChatBotMessageWithFilms("советую посмотреть следующие комедии:", recommendationService.recommend(0, "comedy"));
             case "action":
-                return new ChatBotMessageWithFilms("recommended actions", recommendationService.recommend(0, "action"));
+                return new ChatBotMessageWithFilms("советую посмотреть следующие боевики:", recommendationService.recommend(0, "action"));
             case "romance":
-                return new ChatBotMessageWithFilms("recommended romances:", recommendationService.recommend(0, "romance"));
+                return new ChatBotMessageWithFilms("советую посмотреть следующие романтические фильмы:", recommendationService.recommend(0, "romance"));
         }
 
         return new ChatBotMessage("oops!");

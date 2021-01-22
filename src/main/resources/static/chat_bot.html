@@ -53,9 +53,24 @@
                     'Content-Type': 'application/json'
                 },
             })
-                .then(response => response.text())
+                .then(response => response.json())
                 .then(answer => {
-                    $('#answers').append('<div>' + answer + '</div>')
+                    let html = '';
+
+                    html += '<div class="mb-3">';
+                    html += '<div>' + answer.text + '</div>';
+
+                    if (answer.films != null) {
+                        for (let i = 0; i < answer.films.length; i++) {
+                            let film = answer.films[i];
+                            html += '<div>';
+                            html += '<div class="text-success">' + film.name + '</div>';
+                            html += '<div class="text-info">' + film.description + '</div>';
+                            html += '</div>';
+                        }
+                    }
+
+                    $('#answers').prepend(html);
                 })
         }
     </script>
