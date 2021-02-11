@@ -17,7 +17,17 @@ public class RecommendationServiceImpl implements RecommendationService {
     }
 
     @Override
-    public List<Film> recommend(long userId, String genre) {
-        return filmService.getFilmsByGenre(genre);
+    public List<Film> recommend(long userId) {
+        return null;
+    }
+
+    @Override
+    public List<Film> recommendByGenre(long userId, long genreId) {
+        return null;
+    }
+
+    @Override
+    public List<Film> recommendByActor(long userId, long actorId) {
+        return null;
     }
 }
