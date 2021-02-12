@@ -2,11 +2,13 @@ package com.moviesandchill.recommendationservice.service.impl;
 
 import com.moviesandchill.recommendationservice.entity.Genre;
 import com.moviesandchill.recommendationservice.service.GenreService;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class GenreServiceImpl implements GenreService {
     List<Genre> genres = new ArrayList<>();
 

@@ -1,8 +1,8 @@
 package com.moviesandchill.recommendationservice.service.impl;
 
 import com.moviesandchill.recommendationservice.entity.ChatBotMessage;
-import com.moviesandchill.recommendationservice.entity.ChatBotMessageWithFilms;
 import com.moviesandchill.recommendationservice.service.ChatBotService;
+import com.moviesandchill.recommendationservice.service.GenreService;
 import com.moviesandchill.recommendationservice.service.MessageCategorizerService;
 import com.moviesandchill.recommendationservice.service.RecommendationService;
 import org.springframework.stereotype.Service;
@@ -10,12 +10,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class ChatBotServiceImpl implements ChatBotService {
     private final MessageCategorizerService messageCategorizerService;
-
     private final RecommendationService recommendationService;
+    private final GenreService genreService;
 
-    public ChatBotServiceImpl(MessageCategorizerService messageCategorizerService, RecommendationService recommendationService) {
+    public ChatBotServiceImpl(MessageCategorizerService messageCategorizerService, RecommendationService recommendationService, GenreService genreService) {
         this.messageCategorizerService = messageCategorizerService;
         this.recommendationService = recommendationService;
+        this.genreService = genreService;
     }
 
     @Override
@@ -28,12 +29,6 @@ public class ChatBotServiceImpl implements ChatBotService {
                 return new ChatBotMessage("привет!");
             case "conversation-complete":
                 return new ChatBotMessage("до встречи!");
-            case "comedy":
-                return new ChatBotMessageWithFilms("советую посмотреть следующие комедии:", recommendationService.recommend(0, "comedy"));
-            case "action":
-                return new ChatBotMessageWithFilms("советую посмотреть следующие боевики:", recommendationService.recommend(0, "action"));
-            case "romance":
-                return new ChatBotMessageWithFilms("советую посмотреть следующие романтические фильмы:", recommendationService.recommend(0, "romance"));
         }
 
         return new ChatBotMessage("oops!");
