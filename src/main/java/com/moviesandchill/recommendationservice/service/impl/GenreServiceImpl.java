@@ -10,17 +10,17 @@ import java.util.Optional;
 
 @Service
 public class GenreServiceImpl implements GenreService {
-    List<Genre> genres = new ArrayList<>();
+    private static final List<Genre> GENRES = new ArrayList<>();
 
     {
-        genres.add(new Genre(1, "action"));
-        genres.add(new Genre(2, "comedy"));
-        genres.add(new Genre(3, "romance"));
+        GENRES.add(new Genre(1, "action"));
+        GENRES.add(new Genre(2, "comedy"));
+        GENRES.add(new Genre(3, "romance"));
     }
 
     @Override
     public List<Genre> getAllGenres() {
-        return genres;
+        return GENRES;
     }
 
     @Override
