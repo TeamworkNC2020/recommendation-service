@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class MessageCategorizerTrainingSample {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long MessageCategorizerTrainingSampleId; // wtf?
+    private Long messageCategorizerTrainingSampleId; // wtf?
 
     private String category;
 

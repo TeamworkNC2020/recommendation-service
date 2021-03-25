@@ -11,23 +11,23 @@ import java.util.stream.Collectors;
 @Service
 public class FilmServiceImpl implements FilmService {
 
-    private static final List<Film> films = new ArrayList<>();
+    private static final List<Film> FILMS = new ArrayList<>();
 
     static {
-        films.add(new Film(1, "один дома", "olo olo lol", List.of("comedy")));
-        films.add(new Film(2, "Мстители: Война бесконечности", "bla bla bla", List.of("action")));
-        films.add(new Film(3, "В джазе только девушки", "ora ora ora", List.of("romance")));
-        films.add(new Film(4, "Крепкий орех", "bla bla bla", List.of("action")));
+        FILMS.add(new Film(1, "один дома", "olo olo lol", List.of("comedy")));
+        FILMS.add(new Film(2, "Мстители: Война бесконечности", "bla bla bla", List.of("action")));
+        FILMS.add(new Film(3, "В джазе только девушки", "ora ora ora", List.of("romance")));
+        FILMS.add(new Film(4, "Крепкий орех", "bla bla bla", List.of("action")));
     }
 
     @Override
     public List<Film> getAllFilms() {
-        return films;
+        return FILMS;
     }
 
     @Override
     public List<Film> getFilmsByGenre(String genre) {
-        return films.stream()
+        return FILMS.stream()
                 .filter(film -> film.getGenres().contains(genre))
                 .collect(Collectors.toList());
     }

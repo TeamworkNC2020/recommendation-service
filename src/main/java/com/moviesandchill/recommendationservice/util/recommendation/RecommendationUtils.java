@@ -1,6 +1,6 @@
 package com.moviesandchill.recommendationservice.util.recommendation;
 
-import com.moviesandchill.recommendationservice.util.NlpUtils;
+import lombok.extern.log4j.Log4j;
 import org.apache.mahout.cf.taste.common.TasteException;
 import org.apache.mahout.cf.taste.impl.common.FastByIDMap;
 import org.apache.mahout.cf.taste.impl.model.GenericDataModel;
@@ -14,16 +14,14 @@ import org.apache.mahout.cf.taste.model.PreferenceArray;
 import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 import org.apache.mahout.cf.taste.recommender.UserBasedRecommender;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class RecommendationUtils {
-    private static final Logger logger = LoggerFactory.getLogger(NlpUtils.class);
+@Log4j
+public final class RecommendationUtils {
 
     private RecommendationUtils() {
     }
