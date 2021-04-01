@@ -1,7 +1,7 @@
 package com.moviesandchill.recommendationservice.controller.api;
 
-import com.moviesandchill.recommendationservice.dto.MessageDto;
-import com.moviesandchill.recommendationservice.entity.ChatBotMessage;
+import com.moviesandchill.recommendationservice.dto.message.ChatBotMessageDto;
+import com.moviesandchill.recommendationservice.dto.message.UserMessageDto;
 import com.moviesandchill.recommendationservice.service.ChatBotService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,9 +26,9 @@ public class RecommendationController {
     }
 
     @PostMapping("chat_bot")
-    private ChatBotMessage chatBot(@RequestBody MessageDto messageDto) {
-        String text = messageDto.getText();
-        long userId = messageDto.getUserId();
+    private ChatBotMessageDto chatBot(@RequestBody UserMessageDto userMessageDto) {
+        String text = userMessageDto.getText();
+        long userId = userMessageDto.getUserId();
         return chatBotService.answer(text, userId);
     }
 }

@@ -6,10 +6,10 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "message_categorizer_training_samples")
+@Table(name = "message_categorizer_samples")
 @Data
 @NoArgsConstructor
-public class MessageCategorizerTrainingSample {
+public class MessageCategorizerSample {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long messageCategorizerTrainingSampleId; // wtf?

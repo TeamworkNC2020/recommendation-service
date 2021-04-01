@@ -1,7 +1,7 @@
 package com.moviesandchill.recommendationservice.service;
 
-import com.moviesandchill.recommendationservice.entity.ChatBotMessage;
+import com.moviesandchill.recommendationservice.dto.message.ChatBotMessageDto;
 
 public interface ChatBotService {
-    ChatBotMessage answer(String text, long userId);
+    ChatBotMessageDto answer(String text, long userId);
 }

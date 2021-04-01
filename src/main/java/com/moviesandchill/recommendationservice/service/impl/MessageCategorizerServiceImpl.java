@@ -1,6 +1,6 @@
 package com.moviesandchill.recommendationservice.service.impl;
 
-import com.moviesandchill.recommendationservice.repository.MessageCategorizerTrainingSampleRepository;
+import com.moviesandchill.recommendationservice.repository.MessageCategorizerSampleRepository;
 import com.moviesandchill.recommendationservice.service.MessageCategorizerService;
 import com.moviesandchill.recommendationservice.util.NlpUtils;
 import opennlp.tools.doccat.DoccatModel;
@@ -18,11 +18,11 @@ import java.util.stream.Collectors;
 @Service
 public class MessageCategorizerServiceImpl implements MessageCategorizerService {
 
-    private final MessageCategorizerTrainingSampleRepository trainingSampleRepository;
+    private final MessageCategorizerSampleRepository trainingSampleRepository;
 
     private DoccatModel model;
 
-    public MessageCategorizerServiceImpl(MessageCategorizerTrainingSampleRepository trainingSampleRepository) {
+    public MessageCategorizerServiceImpl(MessageCategorizerSampleRepository trainingSampleRepository) {
         this.trainingSampleRepository = trainingSampleRepository;
     }
 
