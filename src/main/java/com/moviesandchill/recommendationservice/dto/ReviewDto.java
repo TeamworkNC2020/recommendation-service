@@ -14,7 +14,7 @@ public class ReviewDto {
     private long userId;
 
     @JsonAlias("rating_film")
-    private long filmRating;
+    private int rating;
 
     private String review;
 
