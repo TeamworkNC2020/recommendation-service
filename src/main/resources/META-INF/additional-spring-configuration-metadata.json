@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "endpoint.user-service.url",
+      "type": "java.lang.String",
+      "description": "Description for endpoint.user-service.url."
+    },
+    {
+      "name": "endpoint.film-service.url",
+      "type": "java.lang.String",
+      "description": "Description for endpoint.film-service.url."
+    }
+  ]
+}
