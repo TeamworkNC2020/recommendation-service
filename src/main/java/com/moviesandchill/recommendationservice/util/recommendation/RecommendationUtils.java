@@ -1,9 +1,11 @@
 package com.moviesandchill.recommendationservice.util.recommendation;
 
+import com.moviesandchill.recommendationservice.pojo.UserFilmRating;
+import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j;
-import org.apache.mahout.cf.taste.common.TasteException;
 import org.apache.mahout.cf.taste.impl.common.FastByIDMap;
 import org.apache.mahout.cf.taste.impl.model.GenericDataModel;
+import org.apache.mahout.cf.taste.impl.model.GenericPreference;
 import org.apache.mahout.cf.taste.impl.model.GenericUserPreferenceArray;
 import org.apache.mahout.cf.taste.impl.neighborhood.ThresholdUserNeighborhood;
 import org.apache.mahout.cf.taste.impl.recommender.GenericUserBasedRecommender;
@@ -19,31 +21,34 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Log4j
 public final class RecommendationUtils {
 
+    private static final double THRESHOLD = 0.1;
+    private static final int MAX_COUNT_OF_RECOMMENDATIONS = 5; //todo: rename
+
     private RecommendationUtils() {
     }
 
-    public static List<RecommendedItem> recommend(List<Preference> preferences) {
+    @SneakyThrows
+    public static List<RecommendedItem> recommend(List<UserFilmRating> userFilmRatings, long userId) {
+        List<Preference> preferences = mapToPreferences(userFilmRatings);
         DataModel model = createDataModel(preferences);
         CityBlockSimilarity similarity = new CityBlockSimilarity(model);
-        UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, model);
+        UserNeighborhood neighborhood = new ThresholdUserNeighborhood(THRESHOLD, similarity, model);
         UserBasedRecommender recommender = new GenericUserBasedRecommender(model, neighborhood, similarity);
-
-        // The First argument is the userID and the Second parameter is 'HOW MANY'
-        List<RecommendedItem> recommendations = null;
-        try {
-            recommendations = recommender.recommend(2, 2);
-        } catch (TasteException e) {
-            e.printStackTrace();
-        }
-
-        return recommendations;
+        return recommender.recommend(userId, MAX_COUNT_OF_RECOMMENDATIONS);
     }
 
-    public static DataModel createDataModel(List<Preference> preferences) {
+    private static List<Preference> mapToPreferences(List<UserFilmRating> ratings) {
+        return ratings.stream()
+                .map(r -> new GenericPreference(r.getUserId(), r.getFilmId(), r.getRating()))
+                .collect(Collectors.toList());
+    }
+
+    private static DataModel createDataModel(List<Preference> preferences) {
         Map<Long, List<Preference>> usersPreferences = new HashMap<>();
         for (var preference : preferences) {
             var userId = preference.getUserID();
