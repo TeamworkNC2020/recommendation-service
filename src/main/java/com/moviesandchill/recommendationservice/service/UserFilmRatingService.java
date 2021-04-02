@@ -1,6 +1,6 @@
 package com.moviesandchill.recommendationservice.service;
 
-import com.moviesandchill.recommendationservice.entity.UserFilmRating;
+import com.moviesandchill.recommendationservice.pojo.UserFilmRating;
 
 import java.util.List;
 

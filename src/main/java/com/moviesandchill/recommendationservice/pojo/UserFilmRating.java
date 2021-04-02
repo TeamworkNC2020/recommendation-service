@@ -1,4 +1,4 @@
-package com.moviesandchill.recommendationservice.entity;
+package com.moviesandchill.recommendationservice.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class UserFilmRating {
     private long userId;
     private long filmId;
-    private double rating;
+    private float rating;
 }
