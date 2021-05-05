@@ -1,4 +1,4 @@
-package com.moviesandchill.recommendationservice.util;
+package com.moviesandchill.recommendationservice.util.nlp;
 
 import lombok.extern.log4j.Log4j;
 import opennlp.tools.doccat.*;

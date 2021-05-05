@@ -24,12 +24,4 @@ public class RecommendationService {
                 .map(RecommendedItem::getItemID)
                 .collect(Collectors.toList());
     }
-
-    public List<Long> recommendByGenre(long userId, long genreId) {
-        return null;
-    }
-
-    public List<Long> recommendByActor(long userId, long actorId) {
-        return null;
-    }
 }

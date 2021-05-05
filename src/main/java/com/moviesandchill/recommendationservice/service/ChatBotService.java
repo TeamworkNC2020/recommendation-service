@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class ChatBotService {
     private MessageCategorizerService messageCategorizerService;
 
-    public ChatBotMessageDto answer(String text, long userId) {
+    public ChatBotMessageDto answerToUser(String text, long userId) {
         String category = messageCategorizerService.getCategory(text, userId);
 
         //FIXME

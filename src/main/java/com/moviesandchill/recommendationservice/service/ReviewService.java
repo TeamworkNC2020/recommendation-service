@@ -1,26 +1,33 @@
 package com.moviesandchill.recommendationservice.service;
 
 import com.moviesandchill.recommendationservice.dto.ReviewDto;
-import com.moviesandchill.recommendationservice.mapper.CommonMapper;
-import com.moviesandchill.recommendationservice.util.RestTemplateUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 @Service
+@Slf4j
 public class ReviewService {
-    private final CommonMapper commonMapper;
-    @Value("${endpoint.film-service.url}")
-    private String baseUrl;
 
-    public ReviewService(CommonMapper commonMapper) {
-        this.commonMapper = commonMapper;
+    private final String filmServiceUrl;
+
+    private final RestTemplate restTemplate;
+
+    public ReviewService(@Value("${endpoint.film-service.url}") String filmServiceUrl, RestTemplate restTemplate) {
+        this.filmServiceUrl = filmServiceUrl;
+        this.restTemplate = restTemplate;
     }
 
     public List<ReviewDto> getAllReviews() {
-        String url = baseUrl + "/reviews";
-        var dtos = RestTemplateUtils.get(url, ReviewDto[].class).orElseThrow();
-        return commonMapper.toList(dtos);
+        String url = filmServiceUrl + "/reviews";
+        var dtoArray = restTemplate.getForObject(url, ReviewDto[].class);
+        var dtoList = Arrays.asList(Objects.requireNonNull(dtoArray));
+        log.info("loaded " + dtoList.size() + " reviews");
+        return dtoList;
     }
 }

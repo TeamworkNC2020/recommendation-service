@@ -1,7 +1,7 @@
 package com.moviesandchill.recommendationservice.service;
 
 import com.moviesandchill.recommendationservice.repository.MessageCategorizerSampleRepository;
-import com.moviesandchill.recommendationservice.util.NlpUtils;
+import com.moviesandchill.recommendationservice.util.nlp.NlpUtils;
 import opennlp.tools.doccat.DoccatModel;
 import opennlp.tools.doccat.DocumentSample;
 import opennlp.tools.doccat.DocumentSampleStream;
