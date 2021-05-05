@@ -1,4 +1,4 @@
-package com.moviesandchill.recommendationservice.controller.api;
+package com.moviesandchill.recommendationservice.controller.http;
 
 import com.moviesandchill.recommendationservice.dto.message.ChatBotMessageDto;
 import com.moviesandchill.recommendationservice.dto.message.UserMessageDto;
