@@ -7,17 +7,17 @@ import java.time.LocalDate;
 
 @Data
 public class ReviewDto {
-    @JsonAlias("id_review")
+    @JsonAlias("idReview")
     private long reviewId;
 
-    @JsonAlias("id_user")
+    @JsonAlias("idUser")
     private long userId;
 
-    @JsonAlias("rating_film")
+    @JsonAlias("ratingFilm")
     private float rating;
 
     private String review;
 
-    @JsonAlias("review_date")
+    @JsonAlias("reviewDate")
     private LocalDate date;
 }
