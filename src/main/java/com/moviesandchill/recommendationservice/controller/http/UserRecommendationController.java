@@ -1,4 +1,4 @@
-package com.moviesandchill.recommendationservice.controller.api;
+package com.moviesandchill.recommendationservice.controller.http;
 
 import com.moviesandchill.recommendationservice.service.RecommendationService;
 import lombok.extern.log4j.Log4j;
