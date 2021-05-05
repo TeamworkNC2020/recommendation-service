@@ -1,6 +1,6 @@
 package com.moviesandchill.recommendationservice.util.nlp;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import opennlp.tools.doccat.*;
 import opennlp.tools.stemmer.snowball.SnowballStemmer;
 import opennlp.tools.tokenize.SimpleTokenizer;
@@ -11,7 +11,7 @@ import opennlp.tools.util.model.ModelUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-@Log4j
+@Slf4j
 public final class NlpUtils {
 
     private NlpUtils() {
