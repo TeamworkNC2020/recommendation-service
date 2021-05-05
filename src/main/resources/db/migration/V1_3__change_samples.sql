@@ -1,297 +1,349 @@
+-- noinspection SqlWithoutWhereForFile
+
 DELETE
-FROM message_categorizer_samples
-WHERE category != 'greeting'
-   OR category != 'conversation-complete';
+FROM message_categorizer_samples;
 
+
+
+INSERT INTO message_categorizer_samples (category, text)
+VALUES ('conversation-start', 'привет !');
+
+INSERT INTO message_categorizer_samples (category, text)
+VALUES ('conversation-start', 'добрый день !');
+
+INSERT INTO message_categorizer_samples (category, text)
+VALUES ('conversation-start', 'здравствуйте !');
+
+INSERT INTO message_categorizer_samples (category, text)
+VALUES ('conversation-start', 'привет ! как дела ?');
+
+
+INSERT INTO message_categorizer_samples (category, text)
+VALUES ('conversation-complete', 'пока !');
+
+INSERT INTO message_categorizer_samples (category, text)
+VALUES ('conversation-complete', 'до свидания !');
+
+INSERT INTO message_categorizer_samples (category, text)
+VALUES ('conversation-complete', 'до встречи !');
+
+INSERT INTO message_categorizer_samples (category, text)
+VALUES ('conversation-complete', 'еще увидимся !');
+
+INSERT INTO message_categorizer_samples (category, text)
+VALUES ('conversation-complete', 'до связи !');
+
+INSERT INTO message_categorizer_samples (category, text)
+VALUES ('conversation-complete', 'спасибо за все ');
+
+
+
+INSERT INTO message_categorizer_samples (category, text)
+VALUES ('recommend-anything', 'порекомендуй что-нибудь');
+
+INSERT INTO message_categorizer_samples (category, text)
+VALUES ('recommend-anything', 'посоветуй что-нибудь');
+
+INSERT INTO message_categorizer_samples (category, text)
+VALUES ('recommend-anything', 'покажи фильм');
+
+INSERT INTO message_categorizer_samples (category, text)
+VALUES ('recommend-anything', 'посоветуй кино');
+
+INSERT INTO message_categorizer_samples (category, text)
+VALUES ('recommend-anything', 'какие посоветуешь фильмы');
+
+
+
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-anime', 'хочу посмотреть аниме');
+VALUES ('recommend-by-genre-anime', 'хочу посмотреть аниме');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-anime', 'покажи аниме');
+VALUES ('recommend-by-genre-anime', 'покажи аниме');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-anime', 'посоветуй аниме');
+VALUES ('recommend-by-genre-anime', 'посоветуй аниме');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-anime', 'какие посоветуешь аниме ?');
+VALUES ('recommend-by-genre-anime', 'какие посоветуешь аниме ?');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-anime', 'порекомендуй аниме');
+VALUES ('recommend-by-genre-anime', 'порекомендуй аниме');
 
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-action', 'хочу посмотреть боевик');
+VALUES ('recommend-by-genre-action', 'хочу посмотреть боевик');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-action', 'покажи боевик');
+VALUES ('recommend-by-genre-action', 'покажи боевик');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-action', 'посоветуй боевик');
+VALUES ('recommend-by-genre-action', 'посоветуй боевик');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-action', 'какие посоветуешь боевики ?');
+VALUES ('recommend-by-genre-action', 'какие посоветуешь боевики ?');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-action', 'порекомендуй боевики');
+VALUES ('recommend-by-genre-action', 'порекомендуй боевики');
 
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-comedy', 'хочу посмотреть комедию');
+VALUES ('recommend-by-genre-comedy', 'хочу посмотреть комедию');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-comedy', 'покажи комедию');
+VALUES ('recommend-by-genre-comedy', 'покажи комедию');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-comedy', 'посоветуй комедии');
+VALUES ('recommend-by-genre-comedy', 'посоветуй комедии');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-comedy', 'какие посоветуешь комедии ?');
+VALUES ('recommend-by-genre-comedy', 'какие посоветуешь комедии ?');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-comedy', 'порекомендуй комедию');
+VALUES ('recommend-by-genre-comedy', 'порекомендуй комедию');
 
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-war', 'хочу посмотреть военные фильмы');
+VALUES ('recommend-by-genre-war', 'хочу посмотреть военные фильмы');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-war', 'покажи военный фильм');
+VALUES ('recommend-by-genre-war', 'покажи военный фильм');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-war', 'посоветуй фильмы про войну');
+VALUES ('recommend-by-genre-war', 'посоветуй фильмы про войну');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-war', 'какие посоветуешь военные фильмы ?');
+VALUES ('recommend-by-genre-war', 'какие посоветуешь военные фильмы ?');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-war', 'порекомендуй фильм про войну');
+VALUES ('recommend-by-genre-war', 'порекомендуй фильм про войну');
 
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-detective', 'хочу посмотреть детектив');
+VALUES ('recommend-by-genre-detective', 'хочу посмотреть детектив');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-detective', 'покажи детектив');
+VALUES ('recommend-by-genre-detective', 'покажи детектив');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-detective', 'посоветуй фильмы про детективов');
+VALUES ('recommend-by-genre-detective', 'посоветуй фильмы про детективов');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-detective', 'посоветуй детектив');
+VALUES ('recommend-by-genre-detective', 'посоветуй детектив');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-detective', 'какие посоветуешь детективные фильмы ?');
+VALUES ('recommend-by-genre-detective', 'какие посоветуешь детективные фильмы ?');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-detective', 'порекомендуй детектив');
+VALUES ('recommend-by-genre-detective', 'порекомендуй детектив');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-detective', 'посоветуй фильмы про расследования');
+VALUES ('recommend-by-genre-detective', 'посоветуй фильмы про расследования');
 
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-western', 'хочу посмотреть вестерн');
+VALUES ('recommend-by-genre-western', 'хочу посмотреть вестерн');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-western', 'покажи вестерн');
+VALUES ('recommend-by-genre-western', 'покажи вестерн');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-western', 'посоветуй вестерн');
+VALUES ('recommend-by-genre-western', 'посоветуй вестерн');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-western', 'какие посоветуешь вестерны ?');
+VALUES ('recommend-by-genre-western', 'какие посоветуешь вестерны ?');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-western', 'порекомендуй вестерн');
+VALUES ('recommend-by-genre-western', 'порекомендуй вестерн');
 
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-children', 'хочу посмотреть детский фильм');
+VALUES ('recommend-by-genre-children', 'хочу посмотреть детский фильм');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-children', 'хочу посмотреть фильмы для детей');
+VALUES ('recommend-by-genre-children', 'хочу посмотреть фильмы для детей');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-children', 'покажи детские фильмы');
+VALUES ('recommend-by-genre-children', 'покажи детские фильмы');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-children', 'посоветуй фильм для маленьких');
+VALUES ('recommend-by-genre-children', 'посоветуй фильм для маленьких');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-children', 'какие посоветуешь кино для детей ?');
+VALUES ('recommend-by-genre-children', 'какие посоветуешь кино для детей ?');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-children', 'порекомендуй детские фильмы');
+VALUES ('recommend-by-genre-children', 'порекомендуй детские фильмы');
 
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-documentary', 'хочу посмотреть документальный фильм');
+VALUES ('recommend-by-genre-documentary', 'хочу посмотреть документальный фильм');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-documentary', 'покажи документальное кино');
+VALUES ('recommend-by-genre-documentary', 'покажи документальное кино');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-documentary', 'посоветуй документалку');
+VALUES ('recommend-by-genre-documentary', 'посоветуй документалку');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-documentary', 'какие посоветуешь документальные фильмы ?');
+VALUES ('recommend-by-genre-documentary', 'какие посоветуешь документальные фильмы ?');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-documentary', 'порекомендуй документальный фильм');
+VALUES ('recommend-by-genre-documentary', 'порекомендуй документальный фильм');
 
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-historical', 'хочу посмотреть исторический фильм');
+VALUES ('recommend-by-genre-historical', 'хочу посмотреть исторический фильм');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-historical', 'покажи историческое кино');
+VALUES ('recommend-by-genre-historical', 'покажи историческое кино');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-historical', 'посоветуй фильм , основанный на реальных событиях');
+VALUES ('recommend-by-genre-historical', 'посоветуй фильм , основанный на реальных событиях');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-historical', 'какие посоветуешь исторические фильмы ?');
+VALUES ('recommend-by-genre-historical', 'какие посоветуешь исторические фильмы ?');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-historical', 'порекомендуй исторический фильм');
+VALUES ('recommend-by-genre-historical', 'порекомендуй исторический фильм');
 
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-crime', 'хочу посмотреть криминальный фильм');
+VALUES ('recommend-by-genre-crime', 'хочу посмотреть криминальный фильм');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-crime', 'покажи кино про криминал и бандитов');
+VALUES ('recommend-by-genre-crime', 'покажи кино про криминал и бандитов');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-crime', 'посоветуй фильм про криминал');
+VALUES ('recommend-by-genre-crime', 'посоветуй фильм про криминал');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-crime', 'какие посоветуешь криминальные фильмы ?');
+VALUES ('recommend-by-genre-crime', 'какие посоветуешь криминальные фильмы ?');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-crime', 'порекомендуй криминальный фильм');
+VALUES ('recommend-by-genre-crime', 'порекомендуй криминальный фильм');
 
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-melodrama', 'хочу посмотреть мелодраму');
+VALUES ('recommend-by-genre-melodrama', 'хочу посмотреть мелодраму');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-melodrama', 'посоветуй мелодраму');
+VALUES ('recommend-by-genre-melodrama', 'посоветуй мелодраму');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-melodrama', 'какие посоветуешь мелодрамы ?');
+VALUES ('recommend-by-genre-melodrama', 'какие посоветуешь мелодрамы ?');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-melodrama', 'порекомендуй мелодраму');
+VALUES ('recommend-by-genre-melodrama', 'порекомендуй мелодраму');
 
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-adventure', 'хочу посмотреть фильмы про приключения');
+VALUES ('recommend-by-genre-adventure', 'хочу посмотреть фильмы про приключения');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-adventure', 'покажи кино про путешествия и приключения');
+VALUES ('recommend-by-genre-adventure', 'покажи кино про путешествия и приключения');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-adventure', 'посоветуй фильмы про приключения');
+VALUES ('recommend-by-genre-adventure', 'посоветуй фильмы про приключения');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-adventure', 'какое посоветуешь кино про приключения ?');
+VALUES ('recommend-by-genre-adventure', 'какое посоветуешь кино про приключения ?');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-adventure', 'порекомендуй фильм про приключения');
+VALUES ('recommend-by-genre-adventure', 'порекомендуй фильм про приключения');
 
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-thriller', 'хочу посмотреть триллер');
+VALUES ('recommend-by-genre-thriller', 'хочу посмотреть триллер');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-thriller', 'покажи пугающее и страшное кино');
+VALUES ('recommend-by-genre-thriller', 'покажи пугающее и страшное кино');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-thriller', 'посоветуй триллер');
+VALUES ('recommend-by-genre-thriller', 'посоветуй триллер');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-thriller', 'какие посоветуешь триллеры ?');
+VALUES ('recommend-by-genre-thriller', 'какие посоветуешь триллеры ?');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-thriller', 'порекомендуй триллер');
+VALUES ('recommend-by-genre-thriller', 'порекомендуй триллер');
 
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-drama', 'хочу посмотреть драму');
+VALUES ('recommend-by-genre-drama', 'хочу посмотреть драму');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-drama', 'покажи грустное кино');
+VALUES ('recommend-by-genre-drama', 'покажи грустное кино');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-drama', 'посоветуй драматические фильмы');
+VALUES ('recommend-by-genre-drama', 'посоветуй драматические фильмы');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-drama', 'какие посоветуешь драмы ?');
+VALUES ('recommend-by-genre-drama', 'какие посоветуешь драмы ?');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-drama', 'порекомендуй фильм про драму');
+VALUES ('recommend-by-genre-drama', 'порекомендуй фильм про драму');
 
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-horror', 'хочу посмотреть ужасы');
+VALUES ('recommend-by-genre-horror', 'хочу посмотреть ужасы');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-horror', 'покажи пугающее и страшное кино');
+VALUES ('recommend-by-genre-horror', 'покажи пугающее и страшное кино');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-horror', 'посоветуй ужасы');
+VALUES ('recommend-by-genre-horror', 'посоветуй ужасы');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-horror', 'какие посоветуешь ужасы ?');
+VALUES ('recommend-by-genre-horror', 'какие посоветуешь ужасы ?');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-horror', 'порекомендуй ужастики');
+VALUES ('recommend-by-genre-horror', 'порекомендуй ужастики');
 
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-fiction', 'хочу посмотреть фантастику');
+VALUES ('recommend-by-genre-fiction', 'хочу посмотреть фантастику');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-fiction', 'покажи фантастическое кино');
+VALUES ('recommend-by-genre-fiction', 'покажи фантастическое кино');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-fiction', 'посоветуй фантастику');
+VALUES ('recommend-by-genre-fiction', 'посоветуй фантастику');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-fiction', 'какую посоветуешь фантастику ?');
+VALUES ('recommend-by-genre-fiction', 'какую посоветуешь фантастику ?');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-fiction', 'порекомендуй фантастику');
+VALUES ('recommend-by-genre-fiction', 'порекомендуй фантастику');
 
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-cartoon', 'хочу посмотреть мультфильм');
+VALUES ('recommend-by-genre-cartoon', 'хочу посмотреть мультфильм');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-cartoon', 'покажи мультики');
+VALUES ('recommend-by-genre-cartoon', 'покажи мультики');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-cartoon', 'посоветуй мультфильм');
+VALUES ('recommend-by-genre-cartoon', 'посоветуй мультфильм');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-cartoon', 'какую посоветуешь мультфильмы ?');
+VALUES ('recommend-by-genre-cartoon', 'какую посоветуешь мультфильмы ?');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-cartoon', 'порекомендуй мультфильм');
+VALUES ('recommend-by-genre-cartoon', 'порекомендуй мультфильм');
 
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-short_film', 'хочу посмотреть короткометражку');
+VALUES ('recommend-by-genre-short_film', 'хочу посмотреть короткометражку');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-short_film', 'покажи короткометражки');
+VALUES ('recommend-by-genre-short_film', 'покажи короткометражки');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-short_film', 'посоветуй короткометражку');
+VALUES ('recommend-by-genre-short_film', 'посоветуй короткометражку');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-short_film', 'какую посоветуешь короткометражку ?');
+VALUES ('recommend-by-genre-short_film', 'какую посоветуешь короткометражку ?');
 
 INSERT INTO message_categorizer_samples(category, text)
-VALUES ('genre-short_film', 'порекомендуй короткометражки');
+VALUES ('recommend-by-genre-short_film', 'порекомендуй короткометражки');
