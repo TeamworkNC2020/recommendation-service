@@ -1,9 +1,7 @@
-package com.moviesandchill.recommendationservice.dto;
+package com.moviesandchill.recommendationservice.dto.review;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Data;
-
-import java.time.LocalDate;
 
 @Data
 public class ReviewDto {
@@ -13,11 +11,9 @@ public class ReviewDto {
     @JsonAlias("idUser")
     private long userId;
 
+    @JsonAlias("idFilm")
+    private long filmId;
+
     @JsonAlias("ratingFilm")
     private float rating;
-
-    private String review;
-
-    @JsonAlias("reviewDate")
-    private LocalDate date;
 }

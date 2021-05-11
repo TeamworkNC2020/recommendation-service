@@ -1,11 +1,9 @@
 package com.moviesandchill.recommendationservice.controller.http;
 
+import com.moviesandchill.recommendationservice.dto.film.FilmDto;
 import com.moviesandchill.recommendationservice.service.RecommendationService;
 import lombok.extern.log4j.Log4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,7 +19,13 @@ public class UserRecommendationController {
     }
 
     @GetMapping
-    private List<Long> getRecommendations(@PathVariable long userId) {
+    private List<FilmDto> getRecommendations(
+            @PathVariable long userId,
+            @RequestParam(required = false) String genre
+    ) {
+        if (genre != null) {
+            return recommendationService.recommendByGenre(userId, genre);
+        }
         return recommendationService.recommend(userId);
     }
 }
