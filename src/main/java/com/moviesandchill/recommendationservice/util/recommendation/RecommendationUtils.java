@@ -34,12 +34,17 @@ public final class RecommendationUtils {
 
     @SneakyThrows
     public static List<RecommendedItem> recommend(List<UserFilmRating> userFilmRatings, long userId) {
-        List<Preference> preferences = mapToPreferences(userFilmRatings);
-        DataModel model = createDataModel(preferences);
-        CityBlockSimilarity similarity = new CityBlockSimilarity(model);
-        UserNeighborhood neighborhood = new ThresholdUserNeighborhood(THRESHOLD, similarity, model);
-        UserBasedRecommender recommender = new GenericUserBasedRecommender(model, neighborhood, similarity);
-        return recommender.recommend(userId, MAX_COUNT_OF_RECOMMENDATIONS);
+        try {
+            List<Preference> preferences = mapToPreferences(userFilmRatings);
+            DataModel model = createDataModel(preferences);
+            CityBlockSimilarity similarity = new CityBlockSimilarity(model);
+            UserNeighborhood neighborhood = new ThresholdUserNeighborhood(THRESHOLD, similarity, model);
+            UserBasedRecommender recommender = new GenericUserBasedRecommender(model, neighborhood, similarity);
+            return recommender.recommend(userId, MAX_COUNT_OF_RECOMMENDATIONS);
+        } catch (Exception e) {
+            log.error(e);
+            return List.of();
+        }
     }
 
     private static List<Preference> mapToPreferences(List<UserFilmRating> ratings) {
