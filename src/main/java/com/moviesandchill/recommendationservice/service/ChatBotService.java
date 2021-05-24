@@ -1,7 +1,7 @@
 package com.moviesandchill.recommendationservice.service;
 
-import com.moviesandchill.recommendationservice.dto.message.ChatBotMessageDto;
-import com.moviesandchill.recommendationservice.dto.message.RecommendationChatBotMessageDto;
+import com.moviesandchill.recommendationservice.dto.recommendation.message.ChatBotMessageDto;
+import com.moviesandchill.recommendationservice.dto.recommendation.message.RecommendationChatBotMessageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;

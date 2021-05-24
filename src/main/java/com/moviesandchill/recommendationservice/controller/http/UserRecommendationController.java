@@ -1,6 +1,6 @@
 package com.moviesandchill.recommendationservice.controller.http;
 
-import com.moviesandchill.recommendationservice.dto.film.FilmDto;
+import com.moviesandchill.recommendationservice.dto.film.FullFilmDto;
 import com.moviesandchill.recommendationservice.service.RecommendationService;
 import lombok.extern.log4j.Log4j;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +19,7 @@ public class UserRecommendationController {
     }
 
     @GetMapping
-    private List<FilmDto> getRecommendations(
+    private List<FullFilmDto> getRecommendations(
             @PathVariable long userId,
             @RequestParam(required = false) String genre
     ) {

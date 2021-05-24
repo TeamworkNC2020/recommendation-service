@@ -1,4 +1,4 @@
-package com.moviesandchill.recommendationservice.dto.message;
+package com.moviesandchill.recommendationservice.dto.recommendation.message;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

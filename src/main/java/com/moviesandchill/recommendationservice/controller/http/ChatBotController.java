@@ -1,7 +1,7 @@
 package com.moviesandchill.recommendationservice.controller.http;
 
-import com.moviesandchill.recommendationservice.dto.message.ChatBotMessageDto;
-import com.moviesandchill.recommendationservice.dto.message.UserMessageDto;
+import com.moviesandchill.recommendationservice.dto.recommendation.message.ChatBotMessageDto;
+import com.moviesandchill.recommendationservice.dto.recommendation.message.UserMessageDto;
 import com.moviesandchill.recommendationservice.service.ChatBotService;
 import lombok.extern.log4j.Log4j;
 import org.springframework.web.bind.annotation.PostMapping;

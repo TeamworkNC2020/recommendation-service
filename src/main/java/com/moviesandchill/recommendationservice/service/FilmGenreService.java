@@ -1,6 +1,6 @@
 package com.moviesandchill.recommendationservice.service;
 
-import com.moviesandchill.recommendationservice.dto.genre.GenreDto;
+import com.moviesandchill.recommendationservice.dto.film.genre.GenreDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.moviesandchill.recommendationservice.dto.genre;
+package com.moviesandchill.recommendationservice.dto.film.genre;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

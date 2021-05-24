@@ -1,7 +1,7 @@
 package com.moviesandchill.recommendationservice.controller.ws;
 
-import com.moviesandchill.recommendationservice.dto.message.ChatBotMessageDto;
-import com.moviesandchill.recommendationservice.dto.message.UserMessageDto;
+import com.moviesandchill.recommendationservice.dto.recommendation.message.ChatBotMessageDto;
+import com.moviesandchill.recommendationservice.dto.recommendation.message.UserMessageDto;
 import com.moviesandchill.recommendationservice.service.ChatBotService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.handler.annotation.MessageMapping;

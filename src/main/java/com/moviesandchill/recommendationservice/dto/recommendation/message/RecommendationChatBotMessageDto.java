@@ -1,6 +1,6 @@
-package com.moviesandchill.recommendationservice.dto.message;
+package com.moviesandchill.recommendationservice.dto.recommendation.message;
 
-import com.moviesandchill.recommendationservice.dto.film.FilmDto;
+import com.moviesandchill.recommendationservice.dto.film.FullFilmDto;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,9 +14,9 @@ import java.util.List;
 @Getter
 @Setter
 public class RecommendationChatBotMessageDto extends ChatBotMessageDto {
-    private List<FilmDto> films;
+    private List<FullFilmDto> films;
 
-    public RecommendationChatBotMessageDto(String text, List<FilmDto> films) {
+    public RecommendationChatBotMessageDto(String text, List<FullFilmDto> films) {
         super(text);
         this.films = films;
     }

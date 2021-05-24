@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserFilmRating {
-    private long userId;
-    private long filmId;
+    private long idUser;
+    private long idFilm;
     private float rating;
 }

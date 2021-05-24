@@ -2,7 +2,7 @@ package com.moviesandchill.recommendationservice.util.recommendation;
 
 import com.moviesandchill.recommendationservice.pojo.UserFilmRating;
 import lombok.SneakyThrows;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.mahout.cf.taste.impl.common.FastByIDMap;
 import org.apache.mahout.cf.taste.impl.model.GenericDataModel;
 import org.apache.mahout.cf.taste.impl.model.GenericPreference;
@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@Log4j
+@Slf4j
 public final class RecommendationUtils {
 
     private static final double THRESHOLD = 0.1;
@@ -42,14 +42,14 @@ public final class RecommendationUtils {
             UserBasedRecommender recommender = new GenericUserBasedRecommender(model, neighborhood, similarity);
             return recommender.recommend(userId, MAX_COUNT_OF_RECOMMENDATIONS);
         } catch (Exception e) {
-            log.error(e);
+            log.error(String.valueOf(e));
             return List.of();
         }
     }
 
     private static List<Preference> mapToPreferences(List<UserFilmRating> ratings) {
         return ratings.stream()
-                .map(r -> new GenericPreference(r.getUserId(), r.getFilmId(), r.getRating()))
+                .map(r -> new GenericPreference(r.getIdUser(), r.getIdFilm(), r.getRating()))
                 .collect(Collectors.toList());
     }
 

@@ -1,6 +1,6 @@
 package com.moviesandchill.recommendationservice.mapper;
 
-import com.moviesandchill.recommendationservice.dto.review.ReviewDto;
+import com.moviesandchill.recommendationservice.dto.film.review.ReviewDto;
 import com.moviesandchill.recommendationservice.pojo.UserFilmRating;
 import org.mapstruct.Mapper;
 import org.mapstruct.NullValueCheckStrategy;

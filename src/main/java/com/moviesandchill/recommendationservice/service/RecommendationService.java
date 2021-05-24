@@ -1,6 +1,6 @@
 package com.moviesandchill.recommendationservice.service;
 
-import com.moviesandchill.recommendationservice.dto.film.FilmDto;
+import com.moviesandchill.recommendationservice.dto.film.FullFilmDto;
 import com.moviesandchill.recommendationservice.pojo.UserFilmRating;
 import com.moviesandchill.recommendationservice.util.recommendation.RecommendationUtils;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
@@ -22,16 +22,16 @@ public class RecommendationService {
         this.filmGenreService = filmGenreService;
     }
 
-    public List<FilmDto> recommend(long userId) {
+    public List<FullFilmDto> recommend(long userId) {
         List<UserFilmRating> ratings = userFilmRatingService.getAllFilmsRatings();
         var recommendations = RecommendationUtils.recommend(ratings, userId);
         return recommendations.stream()
                 .map(RecommendedItem::getItemID)
-                .map(filmService::getFilmById)
+                .map(filmService::getFullFilmById)
                 .collect(Collectors.toList());
     }
 
-    public List<FilmDto> recommendByGenre(long userId, String genre) {
+    public List<FullFilmDto> recommendByGenre(long userId, String genre) {
         return recommend(userId).stream()
                 .filter(f -> filmGenreService.getGenresAsString(f.getIdFilm()).contains(genre))
                 .collect(Collectors.toList());
