@@ -5,4 +5,8 @@
 <suppressions>
     <suppress files="Application.java" checks="HideUtilityClassConstructor"/>
     <suppress files=".*Test.java" checks="MethodName"/>
+    <suppress files="com[\\/]moviesandchill[\\/]recommendationservice[\\/]dto[\\/]film[\\/].*.java"
+              checks="ParameterName"/>
+    <suppress files="com[\\/]moviesandchill[\\/]recommendationservice[\\/]dto[\\/]film[\\/].*.java"
+              checks="MemberName"/>
 </suppressions>
